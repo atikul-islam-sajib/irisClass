@@ -8,17 +8,18 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split, KFold
 from torch.utils.data import Dataset, DataLoader
 
-def KFold_CV(model = None, X = None, y = None, epochs = None):
+def KFold_CV(model = None, X = None, y = None, epochs = None, fold = None):
     
     loss_function = nn.CrossEntropyLoss()
     optimizer = optim.Adam(params = model.parameters(), lr = 0.001)
     
-    Kfold = KFold(n_splits = 10, shuffle = True, random_state = 42)
+    Kfold = KFold(n_splits = fold, shuffle = True, random_state = 42)
 
     acc = []
     pre = []
     rec = []
     f1  = []
+    
     count = 1
 
     for train_index, test_index in Kfold.split(X):
@@ -140,12 +141,18 @@ def KFold_CV(model = None, X = None, y = None, epochs = None):
             #                                                                                                             accuracy_score(test_predicted, val_label)))
                 
             
-            predicted = model(X_test)
-            predicted = torch.argmax(predicted, dim = 1)
-            
-            acc.append(accuracy_score(predicted, y_test))
-            pre.append(precision_score(predicted, y_test, average = 'macro'))
-            rec.append(recall_score(predicted, y_test, average = 'macro'))
-            f1.append(f1_score(predicted, y_test, average = 'macro'))
+        predicted = model(X_test)
+        predicted = torch.argmax(predicted, dim = 1)
+                
+        acc.append(accuracy_score(predicted, y_test))
+        pre.append(precision_score(predicted, y_test, average = 'macro'))
+        rec.append(recall_score(predicted, y_test, average = 'macro'))
+        f1.append(f1_score(predicted, y_test, average = 'macro'))
 
-            count = count + 1
+        count = count + 1
+    
+    print("_"*50, " With KFold - {} ".format(fold), "_"*50) 
+    print("ACCURACY # {} ".format(np.array(acc).mean()),'\n')
+    print("PRECISON # {} ".format(np.array(pre).mean()),'\n')
+    print("RECALL   # {} ".format(np.array(rec).mean()),'\n')
+    print("F1_SCORE # {} ".format(np.array(f1).mean()),'\n')
