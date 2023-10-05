@@ -26,7 +26,7 @@ setup(
     keywords="iris classification machine-learning",
     project_urls={
         "Bug Tracker": "https://github.com/atikul-islam-sajib/irisClass/issues",
-        "Documentation": "https://github.com/atikul-islam-sajib/irisClass/docs",
+        "Documentation": "https://github.com/atikul-islam-sajib/irisClass/blob/main/README.md",
         "Source Code": "https://github.com/atikul-islam-sajib/irisClass.git",
     },
     

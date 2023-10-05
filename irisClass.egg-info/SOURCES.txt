@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+classifier/ANN.py
+classifier/KFold.py
+classifier/__init__.py
+classifier/dataset.py
+classifier/evaluation.py
+classifier/iris_training.py
+irisClass.egg-info/PKG-INFO
+irisClass.egg-info/SOURCES.txt
+irisClass.egg-info/dependency_links.txt
+irisClass.egg-info/requires.txt
+irisClass.egg-info/top_level.txt
