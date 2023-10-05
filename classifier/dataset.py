@@ -156,7 +156,7 @@ class dataloader:
         print("Test data with batch size    # {} ".format(train_label.shape), '\n')
         print("_"*50,'\n\n')
 
-        return train_loader, test_loader
+        return X, y, train_loader, test_loader
 
 if __name__ == "__main__":
     dataloader = dataloader(dataset = 'C:/Users/atiku/Downloads/archive (6)/Iris.csv')
