@@ -54,9 +54,9 @@ class dataloader:
         dataframe = self._preprocess_data(dataframe = dataframe)
 
         # Split the data into training and testing sets and create data loaders.
-        train_loader, test_loader = self._create_data_loaders(dataframe = dataframe)
+        X, y, train_loader, test_loader = self._create_data_loaders(dataframe = dataframe)
 
-        return train_loader, test_loader
+        return X, y, train_loader, test_loader
 
     def _encode_target(self, dataframe = None):
         """
