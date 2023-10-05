@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name    ="iris_classifier",
+    name    ="iris_classification",
     version = "0.0.1",
     description = "a demo python project for me to understand how to create it !!!",
     author = "Atikul Isla Sajib",
