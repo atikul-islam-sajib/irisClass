@@ -32,6 +32,7 @@ class iris_classifier:
                 4. Store computed loss into TRAIN_LOSS
             """
             for (X_batch, y_batch) in self.train_loader:
+                y_batch = y_batch.long()
                 # Do the prediction
                 train_prediction = self.model(X_batch)
                 # Compute the loss with the predicted and orginal
@@ -73,6 +74,7 @@ class iris_classifier:
             """
             # Run a loop with respect to test_loader
             for (val_data, val_label) in self.test_loader:
+                val_label = val_label.long()
                 # Do the prediction
                 test_prediction = self.model(val_data)
                 # Compute the loss
@@ -92,7 +94,7 @@ class iris_classifier:
             #        Display        #
             #########################
 
-            print("Epoch {}/{} ".format(epoch + 1, EPOCHS))
+            print("Epoch {}/{} ".format(epoch + 1, self.EPOCHS))
             print("{}/{} [=========================] loss: {} - accuracy: {} - val_loss: {} - val_accuracy: {} ".format(self.train_loader.batch_size,\
                                                                                                                         self.train_loader.batch_size,\
                                                                                                                         np.array(train_loss.item()).mean(),

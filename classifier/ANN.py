@@ -93,7 +93,7 @@ class ANN(nn.Module):
             nn.Dropout(p=0.4),
 
             nn.Linear(in_features=16, out_features=3),
-            nn.Softmax()
+            nn.Softmax(dim = 1)
         )
 
     def forward(self, x):
