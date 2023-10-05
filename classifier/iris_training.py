@@ -102,4 +102,6 @@ class iris_classifier:
                                                                                                                         np.array(test_loss.item()).mean(),\
                                                                                                                         accuracy_score(test_predicted, val_label)))
             
+        return history
+            
             
