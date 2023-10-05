@@ -9,6 +9,10 @@ Before using the script, you need to install the required dependencies. You can 
 ```bash
 !pip install -t . git+https://github.com/atikul-islam-sajib/irisClass.git --upgrade
 !pip install classifier
+
+or
+
+!pip install irisClass
 ```
 
 ## Usage
